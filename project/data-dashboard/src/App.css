@@ -1,0 +1,208 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(81, 182, 81);
+}
+
+.artist-image {
+  width: 50%;
+  border-radius: 300px;
+  box-shadow: 0 3px 5px 2px #5987a5;
+  cursor: pointer;
+}
+
+.track-title {
+  font-size: 50px;
+  border-bottom: solid 3px white;
+
+}
+
+.song-cards {
+  background-color: #1d522d;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.artist-popularity {
+  background-color: #8a4ea1;
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.artist-followers {
+  background-color: #abc22b;
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.artist-followers:hover {
+  box-shadow: 0 3px 5px 2px #645f20;
+  cursor: pointer;
+}
+
+.artist-genres {
+  background-color: #93baee;
+  border-radius: 10px;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.artist-genres:hover {
+  box-shadow: 0 3px 5px 2px #416ea8;
+  cursor: pointer;
+}
+
+.artist-popularity:hover {
+  box-shadow: 0 3px 5px 2px #512064;
+  cursor: pointer;
+}
+
+.dashboard-summary {
+  gap: 20px;
+  display: flex;
+}
+
+.song-cards ol {
+  /* list-style: none; */
+  padding: auto;
+  margin: 25px 50px 75px 30px;
+}
+
+.song-cards:hover {
+  box-shadow: 0 3px 5px 2px #068a3f;
+  cursor: pointer;
+}
+
+.search {
+  gap: 10px;
+  display: flex;
+}
+
+.search-button {
+  background-color: white;
+}
+
+.search-button:hover {
+  background-color: #888;
+}
+
+input {
+  width: 75%;
+  padding: 16px 20px;
+}
+
+.track-rows-header {
+  font-weight: bold;
+  background-color: #25a7ca;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.track-columns-track {
+  padding-left: 140px;
+}
+
+.track-rows {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  border-bottom: 1px solid #068a3f;
+  font-size: 15px;
+}
+
+.track-column {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-btn {
+  background-color: #a542cc;
+  color: white;
+  cursor: pointer;
+  height: 100%;
+  border: none;
+  font-weight: bold;
+}
+
+.filter-btn:hover {
+  background-color: #d79cee;
+  color: black;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.artist-image:hover {
+  filter: drop-shadow(0 0 1em #7ab0ddaa);
+}
+.artist-image.react:hover {
+  filter: drop-shadow(0 0 1em #2986a0);
+}
+
+.dropbtn {
+  background-color: #c475e4;
+  color: white;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.filters-list {
+  display: none;
+  position: absolute;
+  background-color: #ecbede;
+  box-shadow: 0px 8px 16px 0px rgba(233, 166, 224, 0.2);
+  z-index: 1;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
