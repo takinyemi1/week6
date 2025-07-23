@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Filter from './Filter';
 import axios from "axios";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [topSongs, setTopSongs] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [sortSongs, setSortedSongs] = useState([]);
+  // const [tracks, setTracks] = useState([]);
   
   const cid = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
   const client_secret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
@@ -113,6 +115,29 @@ function App() {
     setSortedSongs(sorted);
   };
 
+  // show top 5 tracks
+  const handleTopFiveTracks = () => {
+    const top5 = [...sortSongs].sort((a, b) => b.popularity - a.popularity).slice(0, 5);
+    setSortedSongs(top5);
+  }
+
+  // songs under 4 minutes
+  const handleUnderFourMinutes = () => {
+    const underFourMinutes = topSongs.filter((song) => song.duration_ms < 240000);
+    setSortedSongs(underFourMinutes);
+  }
+
+  // songs with features
+  const handleWithFeatures = () => {
+    const features = topSongs.filter((song) => song.name.toLowerCase().includes("feat.") || song.name.includes(","));
+    setSortedSongs(features);
+  }
+
+  const handleWithoutFeatures = () => {
+    const withoutFeatures = topSongs.filter((song) => !song.name.toLowerCase().includes("feat.") && !song.name.includes(","));
+    setSortedSongs(withoutFeatures);
+  }
+
   return (
     <div className='whole-page'>
       {/* side navigation bar */}
@@ -125,18 +150,13 @@ function App() {
           onChange={(e) => setSearchInput(e.target.value)}
         />
 
-        <div className='filter-container'>
-          <button 
-            className='filter-btn'
-            onClick={handleAlphabeticalSort}
-          >
-              Sort by Song Name
-          </button>
-        </div>
-
         {/* search button */}
         <button className='search-button' onClick={searchArtist}>🔎</button>
       </div>
+
+      <h1>Filters & Sorts</h1>
+      <Filter onSort={handleAlphabeticalSort} topTracksSort={handleTopFiveTracks} setFilters={handleUnderFourMinutes} withFeatures={handleWithFeatures} withoutFeatures={handleWithoutFeatures} />
+      <br />
 
       {/* artist name */}
       {artist && (
